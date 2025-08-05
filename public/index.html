@@ -137,7 +137,7 @@
             const isVideo = url.includes('.mp4');
             const el = document.createElement(isVideo ? 'video' : 'img');
 
-            el.src = `/proxy?url=${encodeURIComponent(url)}`;
+            el.src = `/api/proxy?url=${encodeURIComponent(url)}`;
             el.className = 'media-item';
             el.referrerPolicy = 'no-referrer';
 
