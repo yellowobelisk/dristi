@@ -1,0 +1,15 @@
+import json
+
+def convert_txt_to_json(txt_path, json_path, start_key=178):
+    with open(txt_path, 'r') as f:
+        lines = [line.strip() for line in f if line.strip()]
+    
+    numbered_links = {str(i + start_key): link for i, link in enumerate(lines)}
+
+    with open(json_path, 'w') as f:
+        json.dump(numbered_links, f, indent=2)
+    
+    print(f"✅ Converted {len(lines)} links to {json_path} (starting from key {start_key})")
+
+
+convert_txt_to_json("highlight2.txt", "finlinks.json", start_key=178)
